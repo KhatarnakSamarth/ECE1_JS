@@ -1,12 +1,11 @@
 // Asynchrononous Programming to Avoid Blocking
 
-let promise = new Promise((resolve, reject) => {
-    let success = true;
-    if (success) { resolve('Successful !!!') }
-    else { reject('Rejected !!!') }
-}).then((response) => {         // If Resovlved: .then will run
-    console.log(response)
-}).catch((response) => {        // If Rejected:.catch will run
-    console.log(response)
-})
+// Asynchronous Function
+async function fetchData() {
+  const response = await fetch('https://jsonplaceholder.typicode.com/todos/1');
+  const data = await response.json();
+  console.log(data);
+}
+
+fetchData();
 
